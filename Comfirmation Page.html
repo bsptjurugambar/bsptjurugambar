@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmation Page</title>
+</head>
+<body>
+  <h1>Thank You!</h1>
+  <p>Your form submission has been received.</p>
+  <p>Your turn number is: <span id="turnNumber"></span></p>
+
+  <script>
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+    // Retrieve the turn number from the URL parameter
+    var turnNumber = getUrlParameter('turnNumber');
+
+    // Display the turn number on the page
+    document.getElementById('turnNumber').innerText = turnNumber;
+  </script>
+</body>
+</html>
